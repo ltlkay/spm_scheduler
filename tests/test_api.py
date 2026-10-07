@@ -1,3 +1,4 @@
+import os
 import pytest
 from httpx import AsyncClient, ASGITransport
 from unittest.mock import patch
@@ -6,7 +7,10 @@ from app.main import app
 from app.database import get_db
 from app.base import Base
 
-TEST_DB_URL = "postgresql+asyncpg://postgres:PgSup13!@localhost:5432/spm_db_test"
+TEST_DB_URL = os.getenv(
+    "TEST_DATABASE_URL",
+    "postgresql+asyncpg://postgres:postgres@localhost:5432/spm_db_test",
+)
 
 @pytest.fixture(scope="session")
 async def test_engine():
