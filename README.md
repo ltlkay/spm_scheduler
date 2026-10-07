@@ -64,7 +64,7 @@ The API tests run against the real database with the Celery task mocked. The tas
 
 ## CI
 
-GitHub Actions runs on every push and pull request to `main`:
+GitHub Actions runs on every push and pull request to `master`:
 
 - **Test:** `pytest` against a PostgreSQL 15 service container on Python 3.12.
 - **Docker build:** validates the compose file and builds the image.
